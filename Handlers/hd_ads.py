@@ -5,7 +5,7 @@ from environs import Env
 from aiogram.filters import Text
 
 from config.config import load_config
-from lexicon.l_ads import bar
+from lexicon.l_ads import bar, BW
 
 # Инициализируем роутер уровня модуля
 router: Router = Router()
@@ -21,8 +21,15 @@ CHANNEL_ID = config.tg_bot.channel_id
 ADMIN_ID = config.tg_bot.admin_id
 
 
-# Правила нашего канала Барахолка Lodz
+# Правила канала Барахолка Lodz
 @router.message(Text(text='правила бар'))
 async def process_dog_answer(message: Message, bot=None):
     if str(message.from_user.id) in ADMIN_ID:
-        await bot.send_message(chat_id=CHANNEL_ID_BL,text=bar)
+        await bot.send_message(chat_id=CHANNEL_ID_BL, text=bar)
+
+
+# Правила канала Барахолка Варшава
+@router.message(Text(text='правила бв'))
+async def process_dog_answer(message: Message, bot=None):
+    if str(message.from_user.id) in ADMIN_ID:
+        await bot.send_message(chat_id=CHANNEL_ID_BW, text=BW)

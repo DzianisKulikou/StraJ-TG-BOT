@@ -6,7 +6,9 @@ from environs import Env
 class TgBot:
     token: str            # Токен для доступа к телеграм-боту
     channel_id: str       # id канала бьюти Варшава
-    channel_id_na: str    # id канала барахолка Lodz
+    channel_id_na: str    # id канала наша
+    channel_id_bl: str    # id канала барахолка Lodz
+    channel_id_bw: str    # id канала Отдам Варшава
     my_id: str            # id мой
     ira_id: str           # id Иры
     admin_id: list        # id Мой и Иры
@@ -23,6 +25,8 @@ def load_config(path: str | None = None) -> Config:
     return Config(tg_bot=TgBot(token=env('bot_token'),
                                channel_id=env('CHANNEL_ID'),
                                channel_id_na=env('CHANNEL_ID_NA'),
+                               channel_id_bl=env('CHANNEL_ID_BL'),
+                               channel_id_bw=env('CHANNEL_ID_BW'),
                                my_id=env('MY_ID'),
                                ira_id=env('IRA_ID'),
                                admin_id=env('ADMIN_ID')))

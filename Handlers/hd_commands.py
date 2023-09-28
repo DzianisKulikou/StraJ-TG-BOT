@@ -16,3 +16,5 @@ async def process_start_command(message: Message, bot=None):
                                text='Я пока не разговариваю, только каналы обслуживаю!))')
         print(datetime.now(), message.from_user.id, message.from_user.full_name,
               message.from_user.username)  # id chat, id user, name user
+    else:
+        print(message.chat.id)

@@ -1,7 +1,7 @@
 from environs import Env  # Позволяет сохранять переменные в окружение
 from aiogram import Bot, Dispatcher
 
-from Handlers import hd_last, hd_commands
+from Handlers import hd_last, hd_commands, hd_ads
 from config.config import load_config
 
 env = Env()  # Создаем экземпляр класса Env
@@ -16,6 +16,7 @@ dp: Dispatcher = Dispatcher()
 
 # Регистрируем роутеры в диспетчере
 dp.include_router(hd_commands.router)
+dp.include_router(hd_ads.router)
 dp.include_router(hd_last.router)
 
 # Запрос к серверу на получение абдейтов для бота
